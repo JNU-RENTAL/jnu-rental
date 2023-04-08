@@ -1,5 +1,5 @@
 # JNU-RENTAL Project
-## 제데로 잡안?
+## 제대로 잡안?
 ---
 
 팀장(PM)
