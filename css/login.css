@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #60FF9F;
+    font-family: "Jua", sans-serif;
+    height: 95vh;
+}
+
+main {
+    /* border: 2px solid black; */
+    display: flex;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user_logo {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user_logo > img {
+    height: 30px;
+}
+
+.service_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    /* height: 30px */
+}
+
+.service_name > p {
+    font-size: 30px;
+    margin-right: 10px;
+    display: flex;
+}
+
+.service_name > img {
+    height: 35px;
+}
+
+.service_logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 50px;
+}
+
+.service_logo > img {
+    height: 300px;
+}
+
+.login_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 60px;
+    width: 250px;
+}
+
+.login_btn > button {
+    border-style: none;
+    font-size: 30px;
+    font-family: "Jua", sans-serif;
+}
