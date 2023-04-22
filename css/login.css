@@ -27,8 +27,7 @@ main {
 }
 
 .user_logo > img {
-    height: 40px;
-
+    height: 30px;
 }
 
 .service_name {
@@ -53,11 +52,11 @@ main {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .service_logo > img {
-    height: 400px;
+    height: 300px;
 }
 
 .login_btn,  .regist_btn {
@@ -85,4 +84,5 @@ main {
 
 .btns{
     display: flex;
+
 }
