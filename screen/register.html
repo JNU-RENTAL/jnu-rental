@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/Reset.css" />
+    <style>
+      body {
+        font-family: "Jua", sans-serif;
+        background-color: #60ff9f;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        width: 400px;
+        height: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid black;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+      label {
+        margin-left: 10px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="submit"] {
+        margin-bottom: 20px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 90%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-left: 7px;
+      }
+      input[type="submit"] {
+        width: 95%;
+        padding: 10px;
+        margin: 30px 8px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      a {
+        color: black;
+      }
+    </style>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+    rel="stylesheet"
+  />
+  <body>
+    <form>
+      <div>
+        <h1>회원가입</h1>
+
+        <label for="username">아이디:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required />
+        <label for="confirm-password">비밀번호 확인:</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+        />
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required />
+        <input type="submit" value="가입하기" />
+      </div>
+      <p><a href="../index.html">처음으로</a></p>
+    </form>
+  </body>
+</html>
