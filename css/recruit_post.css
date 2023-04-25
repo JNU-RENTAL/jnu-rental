@@ -1,0 +1,104 @@
+.writer {
+    display: flex;
+}
+
+.writer_logo {
+    display: flex;
+}
+
+.writer_logo > img {
+    height: 50px;
+}
+
+.writer_info {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search {
+    margin: 0;
+}
+
+.comment {
+    padding: 10px 10px 0px;
+}
+
+.commenter {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.commenter_logo {
+    display: flex;
+}
+
+.commenter_logo > img {
+    height: 30px;
+}
+
+.commenter_info {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.commenter_info > p {
+    margin: 0;
+}
+
+.subContents {
+
+    margin-top: 20px;
+}
+
+.subContents > p {
+    font-size: 15px;
+}
+
+.comment_write {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 5px 0px 5px 10px;
+    box-shadow: 1px 3px 3px #000;
+}
+
+.comment_write input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-family: "Jua", sans-serif;
+
+  }
+  
+  .comment_write > button {
+    border: none;
+    border-left: 3px solid black;
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #fff;
+	color: #000;
+	font-size: 23px;
+	font-weight: bold;
+    font-family: "Jua", sans-serif;
+	transition: background-color 0.3s;
+  }
+
+.message_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .message_logo > img{
+    height: 40px;
+  }
+
+main {
+    width: 45vw;
+}
