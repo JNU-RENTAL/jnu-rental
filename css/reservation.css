@@ -28,7 +28,7 @@
     display: flex;
 }
 
-.login_btn,  .regist_btn {
+.login_btn, .regist_btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,23 +102,75 @@
 }
 
 .arrow-right {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 60px solid transparent;
     border-bottom: 60px solid transparent;
-    
+
     border-left: 60px solid black;
     margin-left: 50px;
     margin-top: 115px;
-  }
+}
 
 .arrow-left {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 60px solid transparent;
     border-bottom: 60px solid transparent;
 
     border-right: 60px solid black;
     margin-right: 50px;
     margin-top: 115px;
-  }
+}
+
+/*
+예약자 정보 페이지 시작
+*/
+
+.apply_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border: solid #282c34;
+    border-radius: 15px;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.apply_title {
+    align-items: center;
+    font-size: 30px;
+    height: 150px;
+    width: 700px;
+    margin-top: 30px;
+}
+
+.apply_text, .apply_name, .apply_student_id, .apply_phone_number {
+    margin-top: 30px;
+    font-size: 20px;
+    height: 100px;
+    width: 700px;
+}
+
+.apply_button {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 60px;
+    width: 250px;
+    margin-top: 30px;
+    font-family: "Jua", sans-serif;
+}
+
+/*
+예약자 정보 페이지 끝
+*/
