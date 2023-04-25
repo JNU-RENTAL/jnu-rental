@@ -1,0 +1,25 @@
+{
+  "name": "jnu-rental",
+  "version": "1.0.0",
+  "description": "# **프로젝트 이름 : 제대로 잡안!?**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JNU-RENTAL/jnu-rental.git"
+  },
+  "keywords": [
+    "JNU",
+    "FACILITY",
+    "RENTAL",
+    "SYSTEM"
+  ],
+  "author": "CAPSTONE GROUP3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JNU-RENTAL/jnu-rental/issues"
+  },
+  "homepage": "https://github.com/JNU-RENTAL/jnu-rental#readme"
+}
