@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+body {
+    font-family: "Jua", sans-serif;
+    background-color: #60ff9f;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+label {
+    margin-left: 10px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button[type="submit"] {
+    margin-bottom: 20px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+button[type="submit"] {
+    width: 95%;
+    padding: 10px;
+    margin: 30px 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+a {
+    color: black;
+}
