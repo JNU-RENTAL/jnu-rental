@@ -1,0 +1,31 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/recruit.css')
+block content
+    body
+        .user_logo
+            img(src='/profile.png' alt='manual')
+        .recruit
+            nav
+                ul
+                    each place in places
+                        li
+                            a(href=`/recruit/${place.name}`) #{place.name}
+            main
+                h1.title 모집 게시판
+                .search
+                    input(type='text' placeholder='게시판의 글을 검색해 보아요')
+                    button(type='submit') 검색
+                div
+                    each post in posts
+                        section
+                            h2 #{post.title}
+                            p #{post.text}
+                            .subContents
+                                p #{post.createdAt} | #{post.Place.name}
+                                p
+                                    a(href='#') 댓글(0)
+                .write_btn
+                    button 글쓰기
+        script(src='/scripts/recruit.js')
