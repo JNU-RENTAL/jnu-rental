@@ -32,10 +32,12 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "morgan": "^1.10.0",
-    "mysql2": "^3.2.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.3.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
+    "require": "^0.4.4",
     "sequelize": "^6.31.1",
     "sequelize-cli": "^6.6.0"
   }
