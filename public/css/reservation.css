@@ -1,124 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
 .reser_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    /* height: 30px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  /* height: 30px */
 }
 
 .reser_text > p {
-    font-size: 50px;
-    margin-right: 10px;
-    display: flex;
+  font-size: 50px;
+  margin-right: 10px;
+  display: flex;
 }
 
 .calender_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-    /* height: 30px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  /* height: 30px */
 }
 
 .calender_text > p {
-    font-size: 50px;
-    margin-right: 10px;
-    display: flex;
+  font-size: 50px;
+  margin-right: 10px;
+  display: flex;
 }
 
-.login_btn,  .regist_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-color: #282c34;
-    border-radius: 15px;
-    border-style: solid;
-    box-shadow: 1px 3px 3px #000;
-    color: #000;
-    font-size: 30px;
-    height: 60px;
-    width: 250px;
-    margin: 0 10px;
+.login_btn,
+.regist_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-color: #282c34;
+  border-radius: 15px;
+  border-style: solid;
+  box-shadow: 1px 3px 3px #000;
+  color: #000;
+  font-size: 30px;
+  height: 60px;
+  width: 250px;
+  margin: 0 10px;
 }
 
-.login_btn > button, .regist_btn > button {
-    border-style: none;
-    font-size: 30px;
-    font-family: "Jua", sans-serif;
-    background-color: white;
+.login_btn > button,
+.regist_btn > button {
+  border-style: none;
+  font-size: 30px;
+  font-family: "Jua", sans-serif;
+  background-color: white;
 }
 
 .date_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-color: #282c34;
-    border-radius: 15px;
-    border-width: 3px;
-    border-style: solid;
-    box-shadow: 1px 3px 3px #000;
-    color: #000;
-    font-size: 30px;
-    height: 250px;
-    width: 100px;
-    margin: 0 10px;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-color: #282c34;
+  border-radius: 15px;
+  border-width: 3px;
+  border-style: solid;
+  box-shadow: 1px 3px 3px #000;
+  color: #000;
+  font-size: 30px;
+  height: 250px;
+  width: 150px;
+  margin: 0 10px;
+  margin-top: 50px;
 }
 
 .date_btn > button {
-    border-style: none;
-    font-size: 30px;
-    font-family: "Jua", sans-serif;
-    background-color: white;
+  border-style: none;
+  font-size: 30px;
+  font-family: "Jua", sans-serif;
+  background-color: white;
 }
 
 .space_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-color: #282c34;
-    border-radius: 15px;
-    border-width: 3px;
-    border-style: solid;
-    box-shadow: 1px 3px 3px #000;
-    color: #000;
-    font-size: 30px;
-    height: 200px;
-    width: 200px;
-    margin: 0 20px;
-    margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-color: #282c34;
+  border-radius: 15px;
+  border-width: 3px;
+  border-style: solid;
+  box-shadow: 1px 3px 3px #000;
+  color: #000;
+  font-size: 30px;
+  height: 200px;
+  width: 200px;
+  margin: 0 20px;
+  margin-top: 80px;
 }
 
 .space_btn > button {
-    border-style: none;
-    font-size: 30px;
-    font-family: "Jua", sans-serif;
-    background-color: white;
+  border-style: none;
+  font-size: 30px;
+  font-family: "Jua", sans-serif;
+  background-color: white;
 }
 
 .arrow-right {
-    width: 0; 
-    height: 0; 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    
-    border-left: 60px solid black;
-    margin-left: 50px;
-    margin-top: 115px;
-  }
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+
+  border-left: 60px solid black;
+  margin-left: 50px;
+  margin-top: 115px;
+}
 
 .arrow-left {
-    width: 0; 
-    height: 0; 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
 
-    border-right: 60px solid black;
-    margin-right: 50px;
-    margin-top: 115px;
-  }
+  border-right: 60px solid black;
+  margin-right: 50px;
+  margin-top: 115px;
+}
