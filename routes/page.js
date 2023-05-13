@@ -20,4 +20,12 @@ router.get("/", (req, res, next) => {
   res.render("main", { title: "Main", user: req.user });
 });
 
+router.get("/select", (req, res) => {
+  res.render("select", { title: "Select"});
+});
+
+router.get("/sendEmail", (req, res) => {
+  res.render("sendEmail", { title: "sendEmail"});
+})
+
 module.exports = router;

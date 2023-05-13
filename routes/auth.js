@@ -1,10 +1,38 @@
 const express = require("express");
 const passport = require("passport");
 const bcrypt = require("bcrypt");
+const nodemailer = require("nodemailer");
+const dotenv = require('dotenv');
 const User = require("../models/user");
 const { isLoggedIn, isNotLoggedIn } = require("../middlewares");
 
+dotenv.config();
+
 const router = express.Router();
+
+const transporter = nodemailer.createTransport({
+  service: "naver",
+  host: "smtp.naver.com",
+  port: 465,
+  auth: {
+    user: process.env.NODEMAILER_USER,
+    pass: process.env.NODEMAILER_PASS,
+  },
+});
+
+const mailOptions = (mail) =>{
+  return {
+  from: "gjwogur0325@naver.com",
+  to: mail,
+  subject: "가입 인증 메일",
+  html: `
+      가입확인 버튼를 누르시면 가입 인증이 완료됩니다.<br/>
+      <form action="#" method="POST">
+        <button>가입확인</button>
+      </form>  
+      `,
+};} 
+
 
 router.post("/join", async (req, res, next) => {
   const { username, password, jnu_mail } = req.body;
@@ -17,9 +45,12 @@ router.post("/join", async (req, res, next) => {
     await User.create({
       username,
       password: hash,
-      jnu_mail: `${jnu_mail}@jejunu.ac.kr`,
+      jnu_mail: `${jnu_mail}@jejunuac.kr`,
     });
-    return res.redirect("/");
+
+    transporter.sendMail(mailOptions(`${jnu_mail}@jejunuac.kr`));
+
+    return res.redirect("/join");
   } catch (error) {
     console.error(error);
     return next(error);
@@ -40,7 +71,7 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
         console.error(loginError);
         return next(loginError);
       }
-      return res.redirect("/");
+      return res.redirect("/select");
     });
   })(req, res, next);
 });
@@ -50,5 +81,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
+
 
 module.exports = router;
