@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="../../css/main.css"/>
     <link rel="stylesheet" href="../../css/reservation.css"/>
     <title>Timeselect</title>
+    <style>
+      .btn button:active {
+        background-color: gray;
+      }
+      .selected {
+        background-color: gray;
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -16,45 +24,71 @@
       </div>
       <main>
         <div class="reser_text">
-          <p>제대 운동장</p>
-        </div>
+            <p><span id="selected-space"></span></p>
+          </div>
         <div class="calender_text">
-            <p>4월 22일</p>
-          </div>
+            <p><span id="selected-Date"></span></p>
+        </div>
         <div class="btns">  
           <div class="login_btn">
-            <button>09:00~10:00</button>
+            <button onclick="handleClick(this)">09:00~10:00</button>
           </div>
           <div class="login_btn">
-            <button>10:00~11:00</button>
+            <button onclick="handleClick(this)">10:00~11:00</button>
           </div>
           <div class="login_btn">
-            <button>11:00~12:00</button>
+            <button onclick="handleClick(this)">11:00~12:00</button>
           </div>
           <div class="login_btn">
-            <button>13:00~14:00</button>
+            <button onclick="handleClick(this)">13:00~14:00</button>
           </div>
         </div>
         <div class="btns">  
             <div class="login_btn">
-              <button>14:00~15:00</button>
+              <button onclick="handleClick(this)">14:00~15:00</button>
             </div>
             <div class="login_btn">
-              <button>15:00~16:00</button>
+              <button onclick="handleClick(this)">15:00~16:00</button>
             </div>
             <div class="login_btn">
-              <button>16:00~17:00</button>
+              <button onclick="handleClick(this)">16:00~17:00</button>
             </div>
             <div class="login_btn">
-              <button>17:00~18:00</button>
+              <button onclick="handleClick(this)">17:00~18:00</button>
             </div>
           </div>
           <div class="btns">
             <div class="login_btn">
                 <button>예약하기</button>
             </div>
-
       </main>
     </div>
+    <script>
+      const urlParams = new URLSearchParams(location.search);
+      const space = urlParams.get('space');
+      const selectedSpaceElement = document.getElementById('selected-space');
+      const date = urlParams.get('date');
+      const selectedDateElement = document.getElementById('selected-Date');
+      selectedSpaceElement.textContent = space;
+      selectedDateElement.textContent = date;
+      
+     const btns = document.querySelectorAll('.btns button');
+
+btns.forEach((button) => {
+  let isClicked = false;
+
+  button.addEventListener('click', () => {
+    if (!isClicked) {
+      button.style.backgroundColor = 'gray';
+      button.parentElement.style.backgroundColor = 'gray';
+      isClicked = true;
+    } else {
+      button.style.backgroundColor = '';
+      button.parentElement.style.backgroundColor = '';
+      isClicked = false;
+    }
+  });
+});
+    </script>
   </body>
 </html>
