@@ -6,7 +6,7 @@
 
 body {
     /* background-color: #60FF9F;  */
-    background-color: #fafafa;
+    background-color: #EDEEFF;
     font-family: "Nanum Gothic Coding";
     height: 95vh;
 }
@@ -63,7 +63,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4a6bd6;
+    background-color: #9EA2D8;
     border-color: #282c34;
     border-radius: 15px;
     border-style: solid;
@@ -80,11 +80,11 @@ main {
     font-size: 30px;
     font-weight: bold;
     font-family: "Jua";
-    background-color: #4a6bd6;
+    background-color: #9EA2D8;
 }
 
 .login_btn > button > a, .regist_btn > button > a {
-    color: white;
+    color: black;
 }
 
 .btns{

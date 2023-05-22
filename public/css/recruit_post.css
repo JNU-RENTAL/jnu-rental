@@ -102,3 +102,7 @@
 main {
     width: 45vw;
 }
+
+.writer_info > p {
+    margin: 0px;
+}
