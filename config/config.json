@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "answnsgur1353",
+    "password": "비밀번호",
     "database": "jnu_rental",
     "host": "127.0.0.1",
     "dialect": "mysql"
