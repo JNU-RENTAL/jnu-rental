@@ -32,7 +32,7 @@ class Recruitment extends Sequelize.Model {
     });
     db.Recruitment.belongsTo(db.Place, {
       foreignKey: "place",
-      targetKey: "name",
+      targetKey: "id",
     });
     db.Recruitment.hasMany(db.Comment, {
       foreignKey: "recruitment_id",
