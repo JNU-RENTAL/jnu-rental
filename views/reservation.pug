@@ -1,0 +1,27 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/reservation.css')
+block content
+    body
+        form(action='/apply/reservation' method='post')
+            main
+                .apply_box.apply_title
+                    .place #{place}
+                    .date #{date.slice(0, 2) + '월 ' + date.slice(-2) + '일'}
+                .apply_box.apply_text
+                    div 예약자 정보
+                .apply_box.apply_text
+                    label(for='time') 시간
+                    input#time(type='text' name='time' value=`${new Date().getFullYear()}년 ${date.slice(0, 2)}월 ${date.slice(-2)}일 ${time.slice(0, 2)}:00 ~ ${time.slice(-2)}:00`)
+                .apply_box.apply_name
+                    label(for='name') 이름
+                    input#name(type='text' name='name' required)
+                .apply_box.apply_student_id
+                    label(for='student_id') 학번
+                    input#student_id(type='number' name='student_id' required)
+                .apply_box.apply_phone_number
+                    label(for='phone_number') 전화번호
+                    input#phone_number(type='tel' name='phone_number' required)
+                button.apply_button 신청하기
