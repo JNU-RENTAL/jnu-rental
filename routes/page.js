@@ -28,4 +28,8 @@ router.get("/sendEmail", (req, res) => {
   res.render("sendEmail", { title: "sendEmail"});
 })
 
+router.get("/profile", (req, res) => {
+  res.render("profile", { title: "profile"});
+})
+
 module.exports = router;
