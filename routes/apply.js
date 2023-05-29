@@ -1,13 +1,17 @@
 const express = require("express");
 const Reservation = require("../models/reservation");
 const { isLoggedIn, isNotLoggedIn } = require("../middlewares");
+const { Place } = require("../models");
 
 const router = express.Router();
 
 let date = new Date();
 
 router.post("/reservation", async (req, res, next) => {
-  const { time, name, student_id, phone_number } = req.body;
+  const { place, time, name, student_id, phone_number } = req.body;
+  const place_id = await Place.findAll({
+    where: { name: place },
+  });
   try {
     await Reservation.create({
       begin_time: new Date(
@@ -23,6 +27,8 @@ router.post("/reservation", async (req, res, next) => {
       reservation_name: name,
       reservation_student_id: student_id,
       reservation_phone_number: phone_number,
+      place: place_id[0].id,
+      user_id: req.user.id,
     });
     return res.redirect("/");
   } catch (error) {

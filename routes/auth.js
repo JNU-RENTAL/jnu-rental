@@ -19,7 +19,7 @@ router.post("/join", async (req, res, next) => {
       password: hash,
       jnu_mail: `${jnu_mail}@jejunu.ac.kr`,
     });
-    return res.redirect("/");
+    return res.redirect("/verify");
   } catch (error) {
     console.error(error);
     return next(error);
@@ -41,6 +41,9 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
         return next(loginError);
       }
       return res.redirect("/");
+      // return user.is_certified
+      //     ? res.redirect("/")
+      //     : res.redirect("/verify");
     });
   })(req, res, next);
 });

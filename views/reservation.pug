@@ -8,7 +8,8 @@ block content
         form(action='/apply/reservation' method='post')
             main
                 .apply_box.apply_title
-                    .place #{place}
+                    .place
+                        input#place(type='text' name='place' value=`${place}`)
                     .date #{date.slice(0, 2) + '월 ' + date.slice(-2) + '일'}
                 .apply_box.apply_text
                     div 예약자 정보

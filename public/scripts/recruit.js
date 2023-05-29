@@ -2,14 +2,15 @@
 const $profile = document.querySelector(".user_logo img");
 const $recruitSearchInput = document.querySelector(".search input");
 const $recruitSearchBtn = document.querySelector(".search button");
-const $recruitSections = document.querySelectorAll("section");
-const $recruitWriteBtn = document.querySelector(".write_btn button");
+// const $recruitSections = document.querySelectorAll("section");
+// const $recruitWriteBtn = document.querySelector(".write_btn button");
 
 $recruitSearchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
   console.log($recruitSearchInput.value); // 검색어를 출력한다.
+  location.href = location.href + `?q=${$recruitSearchInput.value}`;
 });
 
+/*
 $recruitSections.forEach(function (section) {
   section.addEventListener("click", function (e) {
     e.preventDefault();
@@ -21,7 +22,6 @@ $recruitWriteBtn.addEventListener("click", function (e) {
   e.preventDefault();
   console.log("글쓰기 버튼이 클릭되었습니다."); // 글쓰기 버튼 클릭 시 메시지를 출력한다.
 });
-
 
 function filterPosts() {
   const searchText = $recruitSearchInput.value.trim().toLowerCase();
@@ -40,9 +40,10 @@ function filterPosts() {
       place.includes(searchText) ||
       user.includes(searchText)
     ) {
-      section.style.display = 'block';
+      section.style.display = "block";
     } else {
-      section.style.display = 'none';
+      section.style.display = "none";
     }
   });
 }
+*/

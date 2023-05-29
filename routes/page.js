@@ -43,52 +43,6 @@ router.get("/apply/:place/:date/:time", isLoggedIn, (req, res) => {
     time: req.params.time,
   });
 });
-
-router.get("/recruit", isLoggedIn, async (req, res) => {
-  try {
-    const places = await Place.findAll({});
-    const posts = await Recruitment.findAll({
-      include: [
-        {
-          model: Place,
-          required: true,
-        },
-      ],
-    });
-    res.render("recruit", {
-      title: "모집",
-      places: places,
-      posts: posts,
-    });
-  } catch (err) {
-    console.error(err);
-  }
-});
-
-router.get("/recruit/:place", isLoggedIn, async (req, res) => {
-  try {
-    const places = await Place.findAll({});
-    const posts = await Recruitment.findAll({
-      include: [
-        {
-          model: Place,
-          required: true,
-          where: {
-            name: req.params.place,
-          },
-        },
-      ],
-    });
-    res.render("recruit", {
-      title: `${req.params.place} 모집`,
-      places: places,
-      posts: posts,
-    });
-  } catch (err) {
-    console.error(err);
-  }
-});
-
 router.get("/", (req, res, next) => {
   res.render("main", { title: "Main", user: req.user });
 });

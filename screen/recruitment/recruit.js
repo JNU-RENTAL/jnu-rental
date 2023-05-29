@@ -43,11 +43,6 @@ $recruitSections.forEach(function (section) {
   });
 });
 
-$recruitWriteBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log("글쓰기 버튼이 클릭되었습니다."); // 글쓰기 버튼 클릭 시 메시지를 출력한다.
-});
-
 const tagElements = document.querySelectorAll("li a"); // li 태그에 속한 모든 a 태그 요소를 가져옴
 console.log(tagElements);
 
