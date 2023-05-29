@@ -16,43 +16,33 @@ block content
                 input#confirm-password(type='password' name='confirm-password' required)
                 label(for='email') 이메일:
                 input#email(type='text' name='jnu_mail' required)
-                div#modal_btn
-                    button#open-modal(type='button') 인증하기
+                //- div#modal_btn
+                //-     button#open-modal(type='button') 인증하기
                 if joinError
                     .error-message= joinError
-                form#modal-form(action='/auth/verify' method='post')
-                    div#modal-form-content
-                        h1 이메일 인증
-                        div#modal-admin
-                            label(for='verification') 인증번호:
-                            input#verification(type='text' name='verification')
-                        if verifyError
-                            .error-message= verifyError
-                        button(type='submit' name='submit' value='verify') 인증확인
-                        a#close-modal(href='#') 돌아가기
-                button(type='submit' name='submit' value='register') 가입하기
+                //- form#modal-form(action='/auth/verify' method='post')
+                div#modal-form-content
+                    h1 이메일 인증
+                    div#modal-admin
+                        label(for='verification') 인증번호:
+                        input#verification(type='text' name='verification')
+                    if verifyError
+                        .error-message= verifyError
+                    button#verify-button(type='submit') 인증확인
+                    a#close-modal(href='#') 돌아가기
+                button#join_btn(type='submit' name='submit' value='register') 가입하기
                 a(href='/') 처음으로
     script.
         // 모달 열기
-        const openModalButton = document.querySelector('#open-modal');
+        const joinButton = document.querySelector('#join_btn');
         const modal = document.querySelector('#modal-form-content');
         const closeModalButton = document.querySelector('#close-modal');
 
-        openModalButton.addEventListener('click', function() {
-            modal.style.display = 'block';
-            //- document.getElementById('verification').removeAttribute('required'); // required 속성 제거
-        });
-
-        // 모달 닫기
-        closeModalButton.addEventListener('click', function() {
-            modal.style.display = 'none';
-            //- document.getElementById('verification').setAttribute('required', 'true'); // required 속성 추가
-        });
-
-        // 모달 영역 외 클릭 시 닫기
-        //- window.addEventListener('click', function(event) {
-        //-     if (event.target == modal) {
-        //-         modal.style.display = 'none';
-        //-     }
+        //- joinButton.addEventListener('click', function() {
+        //-     event.preventDefault(); // 폼 제출 방지
+        //-     modal.classList.remove('hidden');
         //- });
 
+        //- closeModalButton.addEventListener('click', function() {
+        //-     modal.classList.add('hidden');
+        //- });

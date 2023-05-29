@@ -9,6 +9,7 @@ const passport = require("passport");
 dotenv.config();
 const pageRouter = require("./routes/page");
 const authRouter = require("./routes/auth");
+const verifyRouter = require('./routes/verify');
 // const mailRouter = require("./public/scripts/mail");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
@@ -49,6 +50,8 @@ app.use(passport.session());
 
 app.use("/", pageRouter);
 app.use("/auth", authRouter);
+// verify 라우터 추가
+app.use('/verify', verifyRouter);
 // app.use("/", mailRouter);
 
 
