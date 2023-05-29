@@ -17,6 +17,14 @@ block content
         button#verify-button(type='submit' onclick='submitForm(event)') 인증확인
         a#close-modal(href='/join') 돌아가기
 
+
+    script.
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get('error');
+      if (error === 'verification') {
+        alert('인증번호가 일치하지 않습니다.');
+      }
+    
     script.
         function submitForm(event) {
             event.preventDefault(); // 폼의 기본 동작인 페이지 전환을 막음

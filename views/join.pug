@@ -32,17 +32,3 @@ block content
                     a#close-modal(href='#') 돌아가기
                 button#join_btn(type='submit' name='submit' value='register') 가입하기
                 a(href='/') 처음으로
-    script.
-        // 모달 열기
-        const joinButton = document.querySelector('#join_btn');
-        const modal = document.querySelector('#modal-form-content');
-        const closeModalButton = document.querySelector('#close-modal');
-
-        //- joinButton.addEventListener('click', function() {
-        //-     event.preventDefault(); // 폼 제출 방지
-        //-     modal.classList.remove('hidden');
-        //- });
-
-        //- closeModalButton.addEventListener('click', function() {
-        //-     modal.classList.add('hidden');
-        //- });

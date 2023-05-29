@@ -61,11 +61,17 @@ app.use((req, res, next) => {
   next(error);
 });
 
+// app.use((err, req, res, next) => {
+//   res.locals.message = err.message;
+//   res.locals.error = process.env.NODE_ENV !== "production" ? err : {};
+//   res.status(err.status || 500);
+//   res.render("error");
+// });
+
+// Error handler
 app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = process.env.NODE_ENV !== "production" ? err : {};
-  res.status(err.status || 500);
-  res.render("error");
+  console.error(err); // 에러를 콘솔에 출력
+  res.status(500).send('Internal Server Error'); // 에러 페이지를 표시하거나 다른 작업 수행
 });
 
 app.listen(app.get("port"), () => {
