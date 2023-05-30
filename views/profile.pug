@@ -1,21 +1,56 @@
 extends layout
 
 block style
-    link(rel="stylesheet", href="/css/profile.css")
+  link(rel="stylesheet", href="/css/profile.css")
 
 block content
-    body
-        .container
-            .profile
-                img(src="profile.png", alt="프로필 이미지")
-                .info
-                    p.username #{user.username}
-                    p 학교 웹메일 : #{user.jnu_mail}
-            p.title 예약 현황
-                each recruit in recruits
-                    .reservation
-                        p 날짜 : #{new Date(recruit.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
-                        p 시간 : #{new Date(recruit.createdAt).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
-                        p 장소 : #{recruit.Place.name}    
+  head 
+    script(src="https://developers.kakao.com/sdk/js/kakao.js")
+  body
+    .container
+      .profile
+        img(src="profile.png", alt="프로필 이미지")
+        .info
+          p.username ID : #{user.username}
+          p 학교 웹메일 : #{user.jnu_mail}
+      p.title 예약 현황
+      each recruit in recruits
+        .reservation 
+          p 날짜 : #{new Date(recruit.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
+          p 시간 : #{new Date(recruit.createdAt).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
+          p 장소 : #{recruit.Place.name}
+    
+      div
+      button(onclick="kakaoButton()") 카카오톡 공유하기
+    script.
+      const kakaoButton = () => {
+        if (window.Kakao) {
+          const kakao = window.Kakao;
 
+          if (!kakao.isInitialized()) {
+            kakao.init('e949ac5ae9365b642e99e33f6330a4db');
+          }
 
+          kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+              title: '제대로 잡안?',
+              description: '예약이 완료되었습니다',
+              imageUrl: 'https://ifh.cc/g/a4ls1A.png',
+              link: {
+                mobileWebUrl: '',
+                webUrl: '',
+              },
+            },
+            buttons: [
+              {
+                title: '예약현황 확인하기',
+                link: {
+                  mobileWebUrl: '',
+                  webUrl: '',
+                },
+              },
+            ],
+          });
+        }
+      };
