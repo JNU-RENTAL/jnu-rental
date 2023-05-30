@@ -27,18 +27,19 @@ block content
                 p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})}
             h2 #{post.title}
             p #{post.text}
-            p
-              a(href="#") 댓글 (0)
+            p 댓글(0)
           each comment in comments
-            section.comment
-              .commenter
-                .commenter_logo
-                  img(src="/profile.png", alt="manual")
-                .commenter_info
-                  p #{comment.User.username}
-              p #{comment.comment_text}
-              .subContents
-                p #{new Date(comment.createdAt).toLocaleString('ko-KR',{month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})}
+            form(action=`/recruit/delete/${post.id}/${comment.id}` method='post')
+              button(type='submit')
+              section.comment
+                .commenter
+                  .commenter_logo
+                    img(src="/profile.png", alt="manual")
+                  .commenter_info
+                    p #{comment.User.username}
+                p #{comment.comment_text}
+                .subContents
+                  p #{new Date(comment.createdAt).toLocaleString('ko-KR',{month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})}
           form.comment_write(action=`/recruit/comment/${post.id}` method='post')
             input#comment_text(type="text", name="comment_text", placeholder="댓글 달기")
             button(type="submit")

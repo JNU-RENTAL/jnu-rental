@@ -2,6 +2,7 @@ const express = require("express");
 const { isLoggedIn } = require("../middlewares");
 const { User, Comment, Place, Recruitment } = require("../models");
 const { Op } = require("sequelize");
+const sequelize = require("sequelize");
 
 const router = express.Router();
 router.get("/write", isLoggedIn, async (req, res) => {
@@ -23,6 +24,25 @@ router.post("/write", isLoggedIn, async (req, res, next) => {
       place: place[0].id,
       user_id: req.user.id,
     });
+    return res.redirect("/recruit");
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+});
+
+router.post("/delete/post/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const post = await Recruitment.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (req.user.id === post[0].user_id) {
+      await Recruitment.destroy({ where: { id: req.params.id } });
+    }
+
     return res.redirect("/recruit");
   } catch (error) {
     console.error(error);
@@ -86,6 +106,28 @@ router.post("/comment/:post_id", async (req, res, next) => {
   }
 });
 
+router.post(
+  "/delete/:post_id/:comment_id",
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const comment = await Comment.findAll({
+        where: {
+          id: req.params.comment_id,
+        },
+      });
+
+      if (req.user.id === comment[0].user_id) {
+        await Comment.destroy({ where: { id: req.params.comment_id } });
+      }
+      return res.redirect(`/recruit/post/${req.params.post_id}`);
+    } catch (error) {
+      console.error(error);
+      return next(error);
+    }
+  }
+);
+
 router.get("/post/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -120,7 +162,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-router.get("/", isLoggedIn, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const places = await Place.findAll({});
     const posts = await Recruitment.findAll({

@@ -22,13 +22,14 @@ block content
                 div
                     each post in posts.reverse()
                         section(data-title=post.title data-text=post.text data-place=post.Place.name data-date=new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'}) data-user=post.user_id)
-                            a(href=`/recruit/post/${post.id}`)
-                                h2 #{post.title}
-                                p #{post.text}
-                                .subContents
-                                    p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})} | #{post.Place.name} | #{post.User.username}
-                                    p
-                                        a(href='#') 댓글(0)
+                            form(action=`/recruit/delete/post/${post.id}` method='post')
+                                button(type='submit')
+                                a(href=`/recruit/post/${post.id}`)
+                                    h2 #{post.title}
+                                    p #{post.text}
+                                    .subContents
+                                        p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})} | #{post.Place.name} | #{post.User.username}
+                                        p 댓글(0)
                 .write_btn
                     button
                         a(href='/recruit/write') 글쓰기
