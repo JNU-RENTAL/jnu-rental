@@ -80,27 +80,7 @@ router.post("/join", async (req, res, next) => {
 });
 
 
-// router.post('/verify', async (req, res, next) => {
-//   const { verification } = req.body;
-//   const user = req.user; // 로그인한 사용자 정보
 
-//   try {
-//     // 입력한 인증번호와 저장된 인증번호 비교
-//     if (verification !== user.verificationCode) {
-//       return res.redirect('/join?error=verification'); // 인증번호가 일치하지 않는 경우
-//     }
-
-//     // 인증 완료 처리
-//     user.verificationCode = null; // 인증번호 초기화
-//     user.status = 1; // 사용자 상태 변경
-//     await user.save();
-
-//     return res.redirect('/join?success=verification'); // 인증 성공
-//   } catch (error) {
-//     console.error(error);
-//     return next(error);
-//   }
-// });
 
 router.post("/login", isNotLoggedIn, (req, res, next) => {
   passport.authenticate("local", (authError, user, info) => {
