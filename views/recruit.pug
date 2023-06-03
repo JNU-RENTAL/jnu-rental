@@ -23,9 +23,11 @@ block content
                     each post in posts.reverse()
                         section(data-title=post.title data-text=post.text data-place=post.Place.name data-date=new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'}) data-user=post.user_id)
                             form(action=`/recruit/delete/post/${post.id}` method='post')
-                                button(type='submit')
                                 a(href=`/recruit/post/${post.id}`)
-                                    h2 #{post.title}
+                                    .top
+                                        h2 #{post.title}
+                                        button(type='submit').delete
+                                            img(src='/bin.png').delete_img
                                     p #{post.text}
                                     .subContents
                                         p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})} | #{post.Place.name} | #{post.User.username}
