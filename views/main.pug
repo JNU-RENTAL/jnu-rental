@@ -1,27 +1,52 @@
 extends layout
 
 block style
-    link(rel='stylesheet' href='/css/main.css')
+  link(rel='stylesheet' href='/css/main.css')
+  link(rel='stylesheet' href='/css/modal2.css')
+
 block content
-    body
-        if user && user.id
-            div 로그인되었습니다
-            button
-                a(href='/auth/logout') 로그아웃
-        else
-            .container
-                .user_logo
-                    img(src='/profile.png' alt='profile')
-                main
-                    .service_name
-                        p 학교 시설 예약 서비스
-                        img(src='/manual.png' alt='manual')
-                    .service_logo
-                        img(src='/logo.png' alt='logo')
-                    .btns
-                        .regist_btn
-                            button
-                                a(href='/join') 회원가입
-                        .login_btn
-                            button
-                                a(href='/login') 로그인
+  body
+    if user && user.id
+      div 로그인되었습니다
+      button
+        a(href='/auth/logout') 로그아웃
+    else
+      .container
+        //- .user_logo
+        //-   img(src='/profile.png' alt='profile')
+        main
+          .service_name
+            p 학교 시설 예약 서비스
+            img#manual(src='/manual.png' alt='manual' onclick='openModal()')
+          .service_logo
+            img(src='/logo.png' alt='logo')
+          .btns
+            .regist_btn
+              button
+                a(href='/join') 회원가입
+            .login_btn
+              button
+                a(href='/login') 로그인
+
+    #modal-overlay(onclick='closeModal()')
+        #modal
+            .header
+                h2 사용 설명
+            .content
+                p 1. 계정이 있을 시 로그인 화면, 계정이 없을 시 회원가입 화면으로 이동
+                p 2. 회원가입 시 제주대학교 웹 메일로만 가입이 가능
+                p 3. 가입하기 버튼을 누르면 해당 메일로 인증번호 전송 후 인증확인 창으로 이동
+                p 4. 인증확인 완료 시 메인화면으로 이동 후 로그인을 통해 웹 사이트 이용 가능
+
+
+
+    script.
+      function openModal() {
+        const modalOverlay = document.getElementById('modal-overlay');
+        modalOverlay.style.display = 'block';
+      }
+
+      function closeModal() {
+        const modalOverlay = document.getElementById('modal-overlay');
+        modalOverlay.style.display = 'none';
+      }
