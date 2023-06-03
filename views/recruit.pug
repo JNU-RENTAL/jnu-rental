@@ -26,12 +26,15 @@ block content
                                 a(href=`/recruit/post/${post.id}`)
                                     .top
                                         h2 #{post.title}
-                                        button(type='submit').delete
-                                            img(src='/bin.png').delete_img
+                                        if (user.id == post.user_id)
+                                            button.delete(type='submit')
+                                                img.delete_img(src='/bin.png')
                                     p #{post.text}
                                     .subContents
                                         p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})} | #{post.Place.name} | #{post.User.username}
-                                        p 댓글(0)
+                                        each comment in comments
+                                            if ( comment.postId == post.id)
+                                                p= '댓글(' + comment.count + ')'
                 .write_btn
                     button
                         a(href='/recruit/write') 글쓰기

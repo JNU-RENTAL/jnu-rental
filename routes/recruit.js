@@ -64,6 +64,7 @@ router.get("/:place", isLoggedIn, async (req, res) => {
         },
         { model: User, required: true },
       ],
+      order: sequelize.col("createdAt"),
     });
     const searchPosts = await Recruitment.findAll({
       include: [
@@ -79,12 +80,14 @@ router.get("/:place", isLoggedIn, async (req, res) => {
       where: {
         title: { [Op.substring]: req.query.q },
       },
+      order: sequelize.col("createdAt"),
     });
 
     res.render("recruit", {
       title: `${req.params.place} 모집`,
       places: places,
       posts: req.query.q ? searchPosts : posts,
+      user: req.user,
     });
   } catch (err) {
     console.error(err);
@@ -151,8 +154,9 @@ router.get("/post/:id", async (req, res) => {
     // recruit.pug 파일 렌더링
     res.render("recruit_post", {
       title: recruit.title,
-      user: user.username,
+      postUser: user.username,
       post: recruit,
+      user: req.user,
       comments,
       places,
     });
@@ -173,6 +177,7 @@ router.get("/", async (req, res) => {
         },
         { model: User, required: true },
       ],
+      order: sequelize.col("createdAt"),
     });
     const searchPosts = await Recruitment.findAll({
       include: [
@@ -185,12 +190,28 @@ router.get("/", async (req, res) => {
       where: {
         title: { [Op.substring]: req.query.q },
       },
+      order: sequelize.col("createdAt"),
     });
+
+    const comments = await Comment.findAll({
+      attributes: [
+        "recruitment_id",
+        [sequelize.fn("COUNT", sequelize.col("recruitment_id")), "count"],
+      ],
+      group: ["recruitment_id"],
+    });
+
+    const commentsArray = comments.map((comment) => ({
+      postId: comment.recruitment_id,
+      count: comment.get("count"),
+    }));
 
     res.render("recruit", {
       title: "모집",
       places,
       posts: req.query.q ? searchPosts : posts,
+      user: req.user,
+      comments: commentsArray,
     });
   } catch (err) {
     console.error(err);
