@@ -19,7 +19,7 @@ router.post("/join", async (req, res, next) => {
       password: hash,
       jnu_mail: `${jnu_mail}@jejunu.ac.kr`,
     });
-    return res.redirect("/verify");
+    return res.redirect("/");
   } catch (error) {
     console.error(error);
     return next(error);

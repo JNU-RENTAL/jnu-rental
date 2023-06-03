@@ -27,7 +27,7 @@ block content
                 p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})}
             h2 #{post.title}
             p #{post.text}
-            p 댓글(0)
+            p 댓글(#{comments.length})
           each comment in comments
             form(action=`/recruit/delete/${post.id}/${comment.id}` method='post')
               button(type='submit')
