@@ -7,20 +7,41 @@ block content
     body
         .user_logo
             img(src='/profile.png' alt='manual')
-        .recruit
-            form(action='/recruit/write' method='post')
-                main
-                    .header
-                        h1.title 글 쓰기
-                        button.writing_logo(type='submit')
-                            p 완료
-                    div
-                        select#write_place(name='write_place')
-                            option --Please choose an option--
-                            each place in places
-                                option #{place.name}
-                    div
-                        .title_writing
-                            input#write_title(type='text' name='write_title' placeholder='제목을 입력해주세요!')
-                        .context_writing
-                            input#write_context(type='text' name='write_context' placeholder='내용을 입력해주세요!')
+        if post
+            .recruit
+                form(action=`/recruit/edit/${post.id}` method='post')
+                    main
+                        .header
+                            h1.title 글 쓰기
+                            button.writing_logo(type='submit')
+                                p 완료
+                        div
+                            select#write_place(name='write_place')
+                                option(value=nowPlace.name)= nowPlace.name
+                                each place in places
+                                    if place.name !== nowPlace.name
+                                        option(value=place.name)= place.name
+
+                        div
+                            .title_writing
+                                input#write_title(type='text' name='write_title' value=post.title)
+                            .context_writing
+                                input#write_context(type='text' name='write_context' value=post.text)
+        else
+            .recruit
+                form(action='/recruit/write' method='post')
+                    main
+                        .header
+                            h1.title 글 쓰기
+                            button.writing_logo(type='submit')
+                                p 완료
+                        div
+                            select#write_place(name='write_place')
+                                option --Please choose an option--
+                                each place in places
+                                    option #{place.name}
+                        div
+                            .title_writing
+                                input#write_title(type='text' name='write_title' placeholder='제목을 입력해주세요!')
+                            .context_writing
+                                input#write_context(type='text' name='write_context' placeholder='내용을 입력해주세요!')

@@ -27,6 +27,8 @@ block content
                                     .top
                                         h2 #{post.title}
                                         if (user.id == post.user_id)
+                                            a(href=`/recruit/edit/post/${post.id}`)
+                                                p 수정하기
                                             button.delete(type='submit')
                                                 img.delete_img(src='/bin.png')
                                     p #{post.text}
