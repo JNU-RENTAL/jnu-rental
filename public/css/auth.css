@@ -77,14 +77,10 @@ button[type="submit"]:hover {
 
 a {
     color: black;
-<<<<<<< HEAD
 }
 
 .email {
     display: flex;
     align-items: center;
-=======
-    display: flex;
     justify-content: center;
->>>>>>> develop
 }

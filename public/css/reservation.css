@@ -189,3 +189,26 @@
 /*
 예약자 정보 페이지 끝
 */
+
+#place, #time {
+    border: none;
+    font-size: 20px;
+}
+
+#place {
+    text-align: center;
+}
+
+#name, #student_id, #phone_number {
+    height: 50px;
+    font-size: 15px;
+    border: 2px solid rgb(39, 39, 39);
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+label {
+    margin-bottom: 5px;
+}
