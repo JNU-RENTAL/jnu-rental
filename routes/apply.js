@@ -30,7 +30,7 @@ router.post("/reservation", async (req, res, next) => {
       place: place_id[0].id,
       user_id: req.user.id,
     });
-    return res.redirect("/");
+    return res.redirect("/select");
   } catch (error) {
     console.error(error);
     return next(error);

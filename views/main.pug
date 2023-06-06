@@ -1,46 +1,7 @@
 extends layout
 
 block style
-<<<<<<< HEAD
-    link(rel='stylesheet' href='/css/main.css')
 
-block content
-    body
-        if user && user.id
-            .container
-                .user_logo
-                    img(src='/profile.png' alt='profile')
-                main
-                    .service_name
-                        p 학교 시설 예약 서비스
-                        img(src='/manual.png' alt='manual')
-                    .service_logo
-                        img(src='/logo.png' alt='logo')
-                    .btns
-                        .regist_btn
-                            button
-                                a(href='/reservation') 예약
-                        .login_btn
-                            button
-                                a(href='/recruit') 모집
-        else
-            .container
-                .user_logo
-                    img(src='/profile.png' alt='profile')
-                main
-                    .service_name
-                        p 학교 시설 예약 서비스
-                        img(src='/manual.png' alt='manual')
-                    .service_logo
-                        img(src='/logo3.png' alt='logo')
-                    .btns
-                        .regist_btn
-                            button
-                                a(href='/join') 회원가입
-                        .login_btn
-                            button
-                                a(href='/login') 로그인
-=======
   link(rel='stylesheet' href='/css/main.css')
   link(rel='stylesheet' href='/css/modal2.css')
 
@@ -90,4 +51,3 @@ block content
         const modalOverlay = document.getElementById('modal-overlay');
         modalOverlay.style.display = 'none';
       }
->>>>>>> develop
