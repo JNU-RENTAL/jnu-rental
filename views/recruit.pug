@@ -27,10 +27,12 @@ block content
                                     .top
                                         h2 #{post.title}
                                         if (user.id == post.user_id)
-                                            a(href=`/recruit/edit/post/${post.id}`)
-                                                p 수정하기
-                                            button.delete(type='submit')
-                                                img.delete_img(src='/bin.png')
+                                            .button
+                                                a(href=`/recruit/edit/post/${post.id}`)
+                                                    .update
+                                                        img.update_img(src='/pen.png')
+                                                button.delete(type='submit')
+                                                    img.delete_img(src='/bin.png')
                                     p #{post.text}
                                     .subContents
                                         p #{new Date(post.createdAt).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})} | #{post.Place.name} | #{post.User.username}

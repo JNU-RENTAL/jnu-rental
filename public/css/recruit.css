@@ -185,9 +185,6 @@ main button:hover {
     border: none;
     width: 50px;
     height: 50px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
 }
 
 .delete_img {
@@ -198,4 +195,22 @@ main button:hover {
 .top {
     display: flex;
     justify-content: space-between;
+}
+
+.update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1px 6px; */
+    width: 50px;
+    height: 50px;
+}
+
+.update_img {
+    width: 30px;
+    height: 30px;
+}
+
+.button {
+    display: flex;
 }
