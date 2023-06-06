@@ -26,6 +26,7 @@ class Reservation extends Sequelize.Model {
         is_confirmed: {
           type: Sequelize.BOOLEAN,
           allowNull: false,
+          defaultValue: false,
         },
       },
       {

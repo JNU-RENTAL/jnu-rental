@@ -1,0 +1,24 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/reservation.css')
+block content
+    body
+        .user_logo
+            img(src='/profile.png' alt='manual')
+        main
+            .reser_text
+                p #{place}
+            .btns
+                - const currentDate = new Date();
+                - const currentMonth = currentDate.getMonth() + 1;
+                - const currentDay = currentDate.getDate();
+
+                -for (let i = 1; i <= 7; i++)
+                  .date_btn
+                    - const targetDate = new Date(currentDate.getFullYear(), currentMonth - 1, currentDay + i);
+                    - const targetMonth = targetDate.getMonth() + 1;
+                    - const targetDay = targetDate.getDate();
+                    button
+                      a(href=`/reservation/${place}/${('0' + targetMonth).slice(-2)}${('0' + targetDay).slice(-2)}`) #{targetMonth + '월 ' + targetDay + '일'}

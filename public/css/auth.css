@@ -9,10 +9,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 form {
     width: 400px;
     height: 600px;
     margin: 0 auto;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,28 +25,40 @@ form {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+
 h1 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 30px;
 }
+
 label {
     margin-left: 10px;
 }
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
 button[type="submit"] {
     margin-bottom: 20px;
 }
+
 input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type="password"] {
     width: 90%;
     padding: 10px;
     margin-top: 10px;
     margin-left: 7px;
 }
+
+#email {
+    width: 60%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 7px;
+    margin-right: 10px;
+}
+
 button[type="submit"] {
     width: 95%;
     padding: 10px;
@@ -56,11 +70,21 @@ button[type="submit"] {
     cursor: pointer;
     font-family: "Jua", sans-serif;
 }
+
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
 a {
     color: black;
+<<<<<<< HEAD
+}
+
+.email {
+    display: flex;
+    align-items: center;
+=======
     display: flex;
     justify-content: center;
+>>>>>>> develop
 }

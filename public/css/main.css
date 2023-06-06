@@ -5,13 +5,13 @@
 }
 
 body {
-    background-color: #60FF9F;
-    font-family: "Jua", sans-serif;
+    /* background-color: #60FF9F;  */
+    background-color: #EDEEFF;
+    font-family: "Nanum Gothic Coding";
     height: 95vh;
 }
 
 main {
-    /* border: 2px solid black; */
     display: flex;
     height: 85vh;
     justify-content: center;
@@ -35,8 +35,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
     margin-bottom: 50px;
-    /* height: 30px */
 }
 
 .service_name > p {
@@ -57,14 +57,14 @@ main {
 }
 
 .service_logo > img {
-    height: 300px;
+    height: 400px;
 }
 
 .login_btn,  .regist_btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #9EA2D8;
     border-color: #282c34;
     border-radius: 15px;
     border-style: solid;
@@ -79,8 +79,13 @@ main {
 .login_btn > button, .regist_btn > button {
     border-style: none;
     font-size: 30px;
-    font-family: "Jua", sans-serif;
-    background-color: white;
+    font-weight: bold;
+    font-family: "Jua";
+    background-color: #9EA2D8;
+}
+
+.login_btn > button > a, .regist_btn > button > a {
+    color: black;
 }
 
 .btns{

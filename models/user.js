@@ -27,9 +27,9 @@ class User extends Sequelize.Model {
           defaultValue: false,
         },
         verification_code: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(50),
           allowNull: true,
-        },
+        }
       },
       {
         sequelize,

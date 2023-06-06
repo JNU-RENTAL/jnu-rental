@@ -96,23 +96,7 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
         console.error(loginError);
         return next(loginError);
       }
-
-      // 로그인 성공 후, 이메일 인증 여부 확인 및 업데이트
-      if (user.is_certified === true) {
-        // 이미 인증된 사용자인 경우
-        return res.redirect("/select");
-      } else {
-        try {
-          await User.update(
-            { is_certified: true },
-            { where: { id: user.id } }
-          );
-          return res.redirect("/select");
-        } catch (error) {
-          console.error(error);
-          return next(error);
-        }
-      }
+      return res.redirect("/");
     });
   })(req, res, next);
 });

@@ -1,0 +1,31 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/reservation.css')
+block content
+    body
+        .user_logo
+            img(src='/profile.png' alt='manual')
+        main
+            .reser_text
+                p #{place}
+            .calender_text
+                p #{date.slice(0,2) + '월 ' + date.slice(-2) + '일'}
+            .btns
+                -for (let i = 9; i <= 11; i++)
+                    .login_btn
+                        button #{('0' + i).slice(-2) + ':00 ~ ' + (i + 1) + ':00' }
+            .btns
+                -for (let i = 13; i <= 15; i++)
+                    .login_btn
+                        button #{('0' + i).slice(-2) + ':00 ~ ' + (i + 1) + ':00' }
+            .btns
+                -for (let i = 16; i <= 17; i++)
+                    .login_btn
+                        button #{('0' + i).slice(-2) + ':00 ~ ' + (i + 1) + ':00' }
+            .btns
+                .submit_btn
+                    button
+                        a#reservation_submit(href=`/apply/${place}/${date}/`) 예약하기
+        script(src='/scripts/reservation.js')
