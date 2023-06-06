@@ -1,0 +1,61 @@
+extends layout
+
+block style
+  link(rel='stylesheet', href='/css/auth.css')
+  link(rel='stylesheet', href='/css/modal.css')
+
+block content
+  body
+    form#verify-form(action='/auth/verify' method='post')
+      div
+        h1 이메일 인증
+        div#modal-admin
+          label(for='verification') 인증번호:
+          input#verification(type='text' name='verification' required)
+        if verifyError
+          .error-message= verifyError
+        button#verify-button(type='button' onclick='verifyEmail()') 인증확인
+        a#close-modal(href='/join') 돌아가기
+
+    script.
+      function verifyEmail() {
+        const verificationInput = document.getElementById('verification');
+        const verification = verificationInput.value;
+
+      function validateVerificationNumber(verification) {
+        // 인증번호 유효성 검사 로직을 구현하세요
+        // 예시: 6자리 숫자인지 확인
+        const verificationRegex = /^\d{6}$/;
+
+        return verificationRegex.test(verification);
+      }
+
+        if (!validateVerificationNumber(verification)) {
+          alert('유효한 인증번호를 입력해주세요.');
+          return;
+        }
+
+        // 서버로 인증번호 전송
+        fetch('/verify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ verification })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // 인증 성공 시 동작
+              alert('이메일 인증이 완료되었습니다.');
+              window.location.href = '/'; // 메인 페이지로 이동하거나 다른 동작을 수행하세요.
+            } else {
+              // 인증 실패 시 동작
+              alert('인증번호가 일치하지 않습니다.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('서버 오류가 발생했습니다.');
+          });
+      }

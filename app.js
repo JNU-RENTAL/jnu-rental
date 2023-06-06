@@ -11,6 +11,8 @@ const pageRouter = require("./routes/page");
 const authRouter = require("./routes/auth");
 const applyRouter = require("./routes/apply");
 const recruitRouter = require("./routes/recruit");
+const verifyRouter = require('./routes/verify');
+// const mailRouter = require("./public/scripts/mail");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
 
@@ -52,6 +54,9 @@ app.use("/", pageRouter);
 app.use("/auth", authRouter);
 app.use("/apply", applyRouter);
 app.use("/recruit", recruitRouter);
+// verify 라우터 추가
+app.use('/verify', verifyRouter);
+// app.use("/", mailRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
@@ -59,11 +64,17 @@ app.use((req, res, next) => {
   next(error);
 });
 
+// app.use((err, req, res, next) => {
+//   res.locals.message = err.message;
+//   res.locals.error = process.env.NODE_ENV !== "production" ? err : {};
+//   res.status(err.status || 500);
+//   res.render("error");
+// });
+
+// Error handler
 app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = process.env.NODE_ENV !== "production" ? err : {};
-  res.status(err.status || 500);
-  res.render("error");
+  console.error(err); // 에러를 콘솔에 출력
+  res.status(500).send('Internal Server Error'); // 에러 페이지를 표시하거나 다른 작업 수행
 });
 
 app.listen(app.get("port"), () => {
