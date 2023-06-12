@@ -5,8 +5,11 @@ const path = require("path");
 const session = require("express-session");
 const dotenv = require("dotenv");
 const passport = require("passport");
+const helmet = require("helmet");
+const hpp = require("hpp");
 
 dotenv.config();
+
 const pageRouter = require("./routes/page");
 const authRouter = require("./routes/auth");
 const applyRouter = require("./routes/apply");
@@ -14,6 +17,7 @@ const recruitRouter = require("./routes/recruit");
 const verifyRouter = require("./routes/verify");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
+const logger = require("./logger");
 
 const app = express();
 
@@ -30,22 +34,37 @@ sequelize
     console.error(err);
   });
 
-app.use(morgan("dev"));
+if (process.env.NODE_ENV === "production") {
+  app.use(morgan("combined"));
+  app.use(
+    helmet({
+      contentSecurityPolicy: false,
+      crossOriginEmbedderPolicy: false,
+      crossOriginResourcePolicy: false,
+    })
+  );
+  app.use(hpp());
+} else {
+  app.use(morgan("dev"));
+}
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: false,
-    secret: process.env.COOKIE_SECRET,
-    cookie: {
-      httpOnly: true,
-      secure: false,
-    },
-  })
-);
+const sessionOption = {
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.COOKIE_SECRET,
+  cookie: {
+    httpOnly: true,
+    secure: false,
+  },
+};
+if (process.env.NODE_ENV === "production") {
+  sessionOption.proxy === true;
+  //sessionOption.cookie.secure = true;
+}
+app.use(session(sessionOption));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -55,6 +74,13 @@ app.use("/apply", applyRouter);
 app.use("/recruit", recruitRouter);
 app.use("/verify", verifyRouter);
 
+app.use((req, res, next) => {
+  const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
+  error.status = 404;
+  logger.info("hello");
+  logger.error(error.message);
+  next(error);
+});
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
