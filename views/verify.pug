@@ -6,7 +6,7 @@ block style
 
 block content
   body
-    form#verify-form(action='/auth/verify' method='post')
+    form#verify-form(action='/auth/verify' method='post' onsubmit='event.preventDefault(); verifyEmail();')
       div
         h1 이메일 인증
         div#modal-admin
@@ -14,7 +14,7 @@ block content
           input#verification(type='text' name='verification' required)
         if verifyError
           .error-message= verifyError
-        button#verify-button(type='button' onclick='verifyEmail()') 인증확인
+        button#verify-button(type='submit') 인증확인
         a#close-modal(href='/join') 돌아가기
 
     script.
@@ -22,13 +22,13 @@ block content
         const verificationInput = document.getElementById('verification');
         const verification = verificationInput.value;
 
-      function validateVerificationNumber(verification) {
-        // 인증번호 유효성 검사 로직을 구현하세요
-        // 예시: 6자리 숫자인지 확인
-        const verificationRegex = /^\d{6}$/;
+        function validateVerificationNumber(verification) {
+          // 인증번호 유효성 검사 로직을 구현하세요
+          // 예시: 6자리 숫자인지 확인
+          const verificationRegex = /^\d{6}$/;
 
-        return verificationRegex.test(verification);
-      }
+          return verificationRegex.test(verification);
+        }
 
         if (!validateVerificationNumber(verification)) {
           alert('유효한 인증번호를 입력해주세요.');
