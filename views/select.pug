@@ -4,24 +4,19 @@ block style
     link(rel='stylesheet' href='/css/main.css')
 block content
     body
-        if user && user.id
-            div 로그인되었습니다
-            button
-                a(href='/auth/logout') 로그아웃
-        else
-            .container
-                .user_logo
-                    img(src='/profile.png' alt='profile', onclick="location.href ='/profile'")
-                main
-                    .service_name
-                        p 학교 시설 예약 서비스
-                        img(src='/manual.png' alt='manual')
-                    .service_logo
-                        img(src='/logo.png' alt='logo')
-                    .btns
-                        .regist_btn
-                            button
-                                a(href='/reservation') 예약
-                        .login_btn
-                            button
-                                a(href='/recruit') 모집
+        .container
+            .user_logo
+                img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
+            main
+                .service_name
+                    p 학교 시설 예약 서비스
+                    img(src='/manual.png' alt='manual')
+                .service_logo
+                    img(src='/logo.png' alt='logo')
+                .btns
+                    .regist_btn
+                        button
+                            a(href='/reservation') 예약
+                    .login_btn
+                        button
+                            a(href='/recruit') 모집
