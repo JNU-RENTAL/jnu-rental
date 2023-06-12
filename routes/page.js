@@ -21,7 +21,8 @@ router.get("/profile/:user_id", async (req, res) => {
   try {
     res.render("profile", {
       title: `내 정보`,
-      user,
+      user: req.user,
+      user_id: user,
       reservations: reservation,
     });
   } catch (error) {
