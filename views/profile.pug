@@ -23,6 +23,7 @@ block content
       div
       button(onclick="kakaoButton()") 카카오톡 공유하기
     script.
+      const user_id = location.href.substring(location.href.lastIndexOf("/") + 1);
       const kakaoButton = () => {
         if (window.Kakao) {
           const kakao = window.Kakao;
