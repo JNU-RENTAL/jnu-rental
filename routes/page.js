@@ -6,8 +6,6 @@ const Reservation = require("../models/reservation");
 const router = express.Router();
 
 router.get("/profile/:user_id", async (req, res) => {
-  const places = await Place.findAll({});
-  const user = req.params.user_id;
   const reservation = await Reservation.findAll({
     include: [
       {
@@ -15,14 +13,20 @@ router.get("/profile/:user_id", async (req, res) => {
         required: true,
       },
     ],
-    where: { user_id: user },
+    where: { user_id: req.params.user_id },
+  });
+
+  const users = await User.findOne({
+    where: {
+      id: req.params.user_id,
+    },
   });
 
   try {
     res.render("profile", {
       title: `내 정보`,
-      user_id: user,
-      user: req.user,
+      user_id: req.params.user_id,
+      user: users,
       reservations: reservation,
     });
   } catch (error) {
