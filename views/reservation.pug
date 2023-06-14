@@ -4,6 +4,27 @@ block style
     link(rel='stylesheet' href='/css/main.css')
     link(rel='stylesheet' href='/css/reservation.css')
 block content
+    head 
+        script(src="https://developers.kakao.com/sdk/js/kakao.min.js")
+        script.
+            const kakaoButton = () => {
+                if (window.Kakao) {
+                    const kakao = window.Kakao;
+
+                    if (!kakao.isInitialized()) {
+                        kakao.init('e949ac5ae9365b642e99e33f6330a4db');
+                    }
+                    const templateArgs = {
+                        '${date}': '#{date.slice(0, 2) + '월 ' + date.slice(-2) + '일'}',
+                        '${time}': '#{time.slice(0, 2)}:00 ~ #{time.slice(-2)}:00',
+                        '${place}': document.querySelector('#place').value,
+                    };
+                    kakao.Link.sendCustom({
+                        templateId: 94923,
+                        templateArgs: templateArgs,
+                    });
+                }
+            };
     body
         form(action='/apply/reservation' method='post')
             main
@@ -25,4 +46,8 @@ block content
                 .apply_box.apply_phone_number
                     label(for='phone_number') 전화번호
                     input#phone_number(type='tel' name='phone_number' required)
-                button.apply_button 신청하기
+                button.apply_button(type='submit') 신청하기
+            script.
+                document.querySelector('form').addEventListener('submit', () => {
+                    kakaoButton();
+                });

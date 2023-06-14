@@ -4,8 +4,6 @@ block style
   link(rel="stylesheet", href="/css/profile.css")
 
 block content
-  head 
-    script(src="https://developers.kakao.com/sdk/js/kakao.js")
   body
     .container
       .profile
@@ -19,39 +17,3 @@ block content
           p 날짜 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
           p 시간 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
           p 장소 : #{reservation.Place.name}
-    
-      div
-      button(onclick="kakaoButton()") 카카오톡 공유하기
-    script.
-      const user_id = location.href.substring(location.href.lastIndexOf("/") + 1);
-      const kakaoButton = () => {
-        if (window.Kakao) {
-          const kakao = window.Kakao;
-
-          if (!kakao.isInitialized()) {
-            kakao.init('e949ac5ae9365b642e99e33f6330a4db');
-          }
-
-          kakao.Link.sendDefault({
-            objectType: 'feed',
-            content: {
-              title: '제대로 잡안?',
-              description: '예약이 완료되었습니다',
-              imageUrl: 'https://ifh.cc/g/a4ls1A.png',
-              link: {
-                mobileWebUrl: '',
-                webUrl: '',
-              },
-            },
-            buttons: [
-              {
-                title: '예약현황 확인하기',
-                link: {
-                  mobileWebUrl: `http://34.64.207.92/profile/${user_id}`,
-                  webUrl: `http://34.64.207.92/profile/${user_id}`,
-                },
-              },
-            ],
-          });
-        }
-      };
