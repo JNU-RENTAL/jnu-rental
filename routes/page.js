@@ -2,6 +2,8 @@ const express = require("express");
 const { isLoggedIn, isNotLoggedIn } = require("../middlewares");
 const { User, Recruitment, Place } = require("../models");
 const Reservation = require("../models/reservation");
+const { Op } = require("sequelize");
+const sequelize = require("sequelize");
 
 const router = express.Router();
 
@@ -77,12 +79,28 @@ router.get("/reservation/:place", isLoggedIn, (req, res) => {
   res.render("dateSelect", { title: "날짜 선택", place: req.params.place });
 });
 
-router.get("/reservation/:place/:date", isLoggedIn, (req, res) => {
-  res.render("timeSelect", {
-    title: "시간 선택",
-    place: req.params.place,
-    date: req.params.date,
-  });
+router.get("/reservation/:place/:date", isLoggedIn, async (req, res) => {
+  try {
+    const today = new Date();
+
+    const reservations = await Reservation.findAll({
+      include: [{ model: Place, required: true }],
+      where: {
+        begin_time: {
+          [sequelize.Op.gte]: sequelize.literal("CURRENT_DATE"),
+        },
+      },
+    });
+
+    res.render("timeSelect", {
+      title: "시간 선택",
+      place: req.params.place,
+      date: req.params.date,
+      reserved_time: reservations,
+    });
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.get("/apply/:place/:date/:time", isLoggedIn, (req, res) => {
