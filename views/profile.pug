@@ -11,9 +11,25 @@ block content
         .info
           p.username ID : #{user.username}
           p 학교 웹메일 : #{user.jnu_mail}
+          //- // 로그아웃 버튼
+          button#logout-button
+            a(href="/auth/logout" onclick='logout()') 로그아웃
+
       p.title 예약 현황
       each reservation in reservations
         .reservation 
           p 날짜 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
           p 시간 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
           p 장소 : #{reservation.Place.name}
+
+    script.
+      function logout() {
+        alert('로그아웃 되었습니다!')
+      }
+
+
+
+
+
+
+

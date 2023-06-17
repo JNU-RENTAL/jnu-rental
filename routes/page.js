@@ -98,12 +98,22 @@ router.get("/select", (req, res) => {
   res.render("select", { title: "Select", user: req.user });
 });
 
-router.get("/sendEmail", (req, res) => {
-  res.render("sendEmail", { title: "sendEmail" });
-});
 
 router.get("/", (req, res, next) => {
-  res.render("main", { title: "Main", user: req.user });
+  // res.render("main", { title: "제대로 잡안?!", user: req.user });
+  if (req.isAuthenticated()) {
+    // 사용자가 인증된 경우
+    if (req.user.is_certified === true) {
+      // 이미 인증된 사용자인 경우
+      return res.redirect("/select");
+    } else {
+      // 인증되지 않은 사용자인 경우
+      return res.render("select");
+    }
+  } else {
+    // 사용자가 인증되지 않은 경우
+    return res.render("main", { title: "제대로 잡안?!", user: req.user });
+  }
 });
 
 module.exports = router;
