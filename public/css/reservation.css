@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap');
 
 .reser_text {
     display: flex;
@@ -100,8 +100,8 @@
 
 .space_btn > button {
     border-style: none;
-    font-size: 30px;
-    font-family: "Jua", sans-serif;
+    font-size: 27px;
+    font-family: 'Jost', sans-serif;    
     background-color: white;
 }
 
