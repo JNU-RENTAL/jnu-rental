@@ -6,7 +6,7 @@ block style
 block content
     body
         .user_logo
-            img(src='/profile.png' alt='manual', onclick="location.href ='/profile'")
+            img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
         if post
             .recruit
                 form(action=`/recruit/edit/${post.id}` method='post')
