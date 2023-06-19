@@ -28,6 +28,7 @@ router.post("/reservation", async (req, res, next) => {
       reservation_student_id: student_id,
       reservation_phone_number: phone_number,
       place: place_id[0].id,
+      user_id: req.user.id,
     });
     return res.redirect("/select");
   } catch (error) {

@@ -52,7 +52,7 @@ router.get("/post/:id", async (req, res) => {
     // recruit.pug 파일 렌더링
     res.render("recruit_post", {
       title: "Recruit_post",
-      user: res.user,
+      user: req.user,
       post: recruit,
     });
   } catch (error) {
@@ -105,7 +105,7 @@ router.get("/reservation/:place/:date", isLoggedIn, async (req, res) => {
       place: req.params.place,
       date: req.params.date,
       reserved_time: reservations,
-      user: req.user
+      user: req.user,
     });
   } catch (err) {
     console.error(err);
@@ -154,7 +154,6 @@ router.post("/delete/reservation/:id", isLoggedIn, async (req, res, next) => {
 router.get("/select", (req, res) => {
   res.render("select", { title: "Select", user: req.user });
 });
-
 
 router.get("/", (req, res, next) => {
   // res.render("main", { title: "제대로 잡안?!", user: req.user });

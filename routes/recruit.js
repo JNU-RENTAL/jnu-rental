@@ -7,7 +7,11 @@ const sequelize = require("sequelize");
 const router = express.Router();
 router.get("/write", isLoggedIn, async (req, res) => {
   const places = await Place.findAll({});
-  res.render("recruit_write", { title: "모집 글 작성", places });
+  res.render("recruit_write", {
+    title: "모집 글 작성",
+    places,
+    user: req.user,
+  });
 });
 
 router.post("/write", isLoggedIn, async (req, res, next) => {
@@ -160,6 +164,7 @@ router.get("/edit/post/:id", async (req, res) => {
       post: recruit,
       places,
       nowPlace,
+      user: req.user,
     });
   } catch (error) {
     console.error(error);
