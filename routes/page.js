@@ -105,6 +105,7 @@ router.get("/reservation/:place/:date", isLoggedIn, async (req, res) => {
       place: req.params.place,
       date: req.params.date,
       reserved_time: reservations,
+      user: req.user
     });
   } catch (err) {
     console.error(err);

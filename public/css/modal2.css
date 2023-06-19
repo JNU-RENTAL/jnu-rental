@@ -6,7 +6,6 @@
     top: 0;
     width: 45%;
     height: 75%;
-    overflow: auto;
     background-color: white;
     top: 50%;
     left: 50%;
@@ -14,13 +13,13 @@
     border: 3px solid black;
     border-radius: 15px;
     padding: 30px;
-    overflow: hidden;
   }
   
   #modal {
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
+    overflow: auto;
 
   }
   
@@ -50,9 +49,15 @@
   }
   
   .content {
+    height : 400px;
     font-size: 23px;
     line-height: 35px;
+    overflow: auto;
   }
+
+  .content::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
 
   .content p {
     margin-bottom: 20px;
