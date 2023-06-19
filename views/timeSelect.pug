@@ -8,6 +8,16 @@ block content
         .user_logo
             img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
         main
+            // 예약되있는 시간 불러오기
+            - const reservedTime = reserved_time;
+            - const begin = [];
+            - const end = [];
+            each time in reservedTime
+                // 장소와 시간 비교해서 push
+                -if (place == time.Place.name && time.begin_time.getDate() == date.slice(-2))
+                    - begin.push(time.begin_time.getHours())
+                    - end.push(time.end_time.getHours())
+
             .reser_text
                 p #{place}
             .calender_text
@@ -29,3 +39,25 @@ block content
                     button
                         a#reservation_submit(href=`/apply/${user.id}/${place}/${date}/`) 예약하기
         script(src='/scripts/reservation.js')
+        script.
+            // 변수에 저장
+            const begin = "#{begin}".split(',');
+            const end = "#{end}".split(',')
+
+            const $btns = document.querySelectorAll('.login_btn button')
+
+            // 예약된 시간과 버튼의 시간들을 비교해서 예약된 시간들은 선택 못하게
+            $btns.forEach(e => {
+                for(let i of begin){
+                    if(parseInt(e.innerText.slice(0,2)) === parseInt(i)){
+                        e.disabled = true;
+                        e.style.backgroundColor='red';
+                    }
+                }
+                for(let i of end){
+                    if (parseInt(e.innerText.slice(8, 10)) === parseInt(i)) {
+                        e.disabled = true;
+                        e.style.backgroundColor = 'red';
+                    }
+                }
+            })
