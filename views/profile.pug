@@ -9,8 +9,11 @@ block content
       .profile
         img(src="/profile.png", alt="프로필 이미지")
         .info
-          p.username ID : #{user.username}
+          .info_id
+            p.username ID : #{user.username}
+            a(href="/auth/logout" onclick='logout()') 로그아웃
           p 학교 웹메일 : #{user.jnu_mail}
+          //- // 로그아웃 버튼
       p.title 예약 현황
       each reservation in reservations
         form.reservation(action=`/delete/reservation/${reservation.id}` method='post')
@@ -23,3 +26,7 @@ block content
               .button
                 button.delete(type='submit')
                   img.delete_img(src='/bin.png')
+  script.
+    function logout() {
+      alert('로그아웃 되었습니다!')
+    }
