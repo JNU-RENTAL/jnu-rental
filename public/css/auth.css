@@ -58,6 +58,7 @@ input[type="password"] {
     margin-left: 7px;
 }
 
+
 #email {
     width: 60%;
     padding: 10px;
@@ -91,4 +92,23 @@ a {
 .email {
     display: flex;
     align-items: center;
+}
+
+.confirm input {
+    margin-bottom: 0;
+}
+
+.emailDiv {
+    margin-top: 20px;
+}
+
+.confirm small {
+    color: #e74c3c;
+    margin-top: 3px;
+    margin-left: 10px;
+    display: none;
+}
+
+.confirm.error small {
+    display:block;
 }
