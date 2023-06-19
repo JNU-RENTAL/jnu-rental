@@ -13,7 +13,13 @@ block content
           p 학교 웹메일 : #{user.jnu_mail}
       p.title 예약 현황
       each reservation in reservations
-        .reservation 
-          p 날짜 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
-          p 시간 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
-          p 장소 : #{reservation.Place.name}
+        form.reservation(action=`/delete/reservation/${reservation.id}` method='post')
+          .top
+            div
+              p 날짜 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {month: '2-digit', day: '2-digit'})}
+              p 시간 : #{new Date(reservation.begin_time).toLocaleString('ko-KR', {hour: '2-digit', minute: '2-digit'})}
+              p 장소 : #{reservation.Place.name}
+            if(user.id == reservation.user_id)
+              .button
+                button.delete(type='submit')
+                  img.delete_img(src='/bin.png')

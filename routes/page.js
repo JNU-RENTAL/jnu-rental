@@ -69,12 +69,20 @@ router.get("/login", isNotLoggedIn, (req, res) => {
 
 router.get("/reservation", isLoggedIn, async (req, res) => {
   const places = await Place.findAll({});
-  res.render("placeSelect", { title: "장소 선택", places: places, user: req.user });
+  res.render("placeSelect", {
+    title: "장소 선택",
+    places: places,
+    user: req.user,
+  });
 });
 
 router.get("/reservation/:place", isLoggedIn, (req, res) => {
   console.log(req.params.place);
-  res.render("dateSelect", { title: "날짜 선택", place: req.params.place, user: req.user });
+  res.render("dateSelect", {
+    title: "날짜 선택",
+    place: req.params.place,
+    user: req.user,
+  });
 });
 
 router.get("/reservation/:place/:date", isLoggedIn, (req, res) => {
@@ -82,25 +90,47 @@ router.get("/reservation/:place/:date", isLoggedIn, (req, res) => {
     title: "시간 선택",
     place: req.params.place,
     date: req.params.date,
-    user: req.user
+    user: req.user,
   });
 });
 
-router.get("/apply/:user_id/:place/:date/:time/", isLoggedIn, async (req, res) => {
+router.get(
+  "/apply/:user_id/:place/:date/:time/",
+  isLoggedIn,
+  async (req, res) => {
+    const user = await User.findOne({
+      where: {
+        id: req.params.user_id,
+      },
+    });
 
-  const user = await User.findOne({
-    where: {
-      id: req.params.user_id,
-    },
-  });
+    res.render("reservation", {
+      title: "예약자 정보",
+      place: req.params.place,
+      date: req.params.date,
+      time: req.params.time,
+      user_id: user.id,
+    });
+  }
+);
 
-  res.render("reservation", {
-    title: "예약자 정보",
-    place: req.params.place,
-    date: req.params.date,
-    time: req.params.time,
-    user_id: user.id,
-  });
+router.post("/delete/reservation/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const reservation = await Reservation.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (req.user.id === reservation[0].user_id) {
+      await Reservation.destroy({ where: { id: req.params.id } });
+    }
+
+    return res.redirect(`/profile/${req.user.id}`);
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
 });
 
 router.get("/select", (req, res) => {
