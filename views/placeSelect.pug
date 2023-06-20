@@ -1,0 +1,18 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/reservation.css')
+block content
+    body
+        .user_logo2
+            img(src='/home.png' alt='profile',  onclick=`location.href = '/select'`)
+            img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
+        main
+            .reser_text
+                p 예약하시겠습니까?
+            .btns
+                each place in places
+                    .space_btn
+                        button
+                            a(href=`/reservation/${place.name}`) #{place.name}

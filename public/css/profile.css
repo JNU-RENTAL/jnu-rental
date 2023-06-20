@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap');
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #EDEEFF;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid black;
+}
+
+h1 {
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+
+    border-bottom:  2px solid black;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.profile .info h2 {
+    margin: 0;
+}
+
+.profile .info p {
+    margin: 5px 0;
+}
+
+.title {
+    font-size: 32px;
+    margin: 30px 20px;
+    margin-bottom: 20px;
+}
+
+.reservation {
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 20px 10px;
+    padding: 20px;
+    line-height: 30px;
+}
+
+.username {
+    font-size: 35px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete {
+    background-color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.delete_img {
+    width: 30px;
+    height: 30px;
+}
+
+.button {
+    display: flex;
+}
+
+.info_id {
+    display: flex;
+}
+
+.info_id > p {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.info_id > a {
+    width: 50%;
+    height: 50%;
+    background-color: aqua;
+    text-align: center;
+    border: 3px solid aqua;
+    padding: 3px;
+    border-radius: 15px;
+    margin-top: 8px;
+    margin-left: 15px;
+}

@@ -1,0 +1,85 @@
+main {
+    width: 55vw;
+}
+
+.user_logo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.header {
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.title {
+    margin: auto;
+    translate: 35px;
+}
+
+.writing_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: "Jua", sans-serif;
+}
+
+
+.writing_logo > img {
+    height: 40px;
+}
+
+.header > button {
+    border: 3px solid black;
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #fff;
+	color: #000;
+	transition: background-color 0.3s;
+    border-radius: 5px;
+    align-items: flex-end;
+  }
+
+button > p {
+    margin: 0;
+}
+
+.title_writing {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 5px 10px;
+    border-bottom: 3px solid black;
+}
+
+.title_writing input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-family: "Jua", sans-serif;
+  }
+
+.context_writing {
+    display: flex;
+    align-items: flex-start;
+    height: 300px;
+    padding: 20px 10px;
+    box-shadow: 1px 3px 3px #000;
+}
+
+.context_writing input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-family: "Jua", sans-serif;
+  }

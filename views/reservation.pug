@@ -1,0 +1,60 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/main.css')
+    link(rel='stylesheet' href='/css/reservation.css')
+block content
+    head
+        
+        script(src="https://developers.kakao.com/sdk/js/kakao.min.js")
+        script.
+            const currentURL = location.href;
+
+            const startIndex = currentURL.indexOf('/apply/') + '/apply/'.length;
+            const endIndex = currentURL.indexOf('/', startIndex);
+
+            const kakaoButton = () => {
+                if (window.Kakao) {
+                    const kakao = window.Kakao;
+
+                    if (!kakao.isInitialized()) {
+                        kakao.init('e949ac5ae9365b642e99e33f6330a4db');
+                    }
+                    const templateArgs = {
+                        '${date}': '#{date.slice(0, 2) + '월 ' + date.slice(-2) + '일'}',
+                        '${time}': '#{time.slice(0, 2)}:00 ~ #{time.slice(-2)}:00',
+                        '${place}': document.querySelector('#place').value,
+                        '${user_id}': currentURL.substring(startIndex, endIndex),
+                    };
+                    kakao.Link.sendCustom({
+                        templateId: 94923,
+                        templateArgs: templateArgs,
+                    });
+                }
+            };
+    body
+        form(action='/apply/reservation' method='post')
+            main
+                .apply_box.apply_title
+                    .place
+                        input#place(type='text' name='place' value=`${place}`)
+                    .date #{date.slice(0, 2) + '월 ' + date.slice(-2) + '일'}
+                .apply_box.apply_text
+                    div 예약자 정보
+                .apply_box.apply_text
+                    label(for='time') 시간
+                    input#time(type='text' name='time' value=`${new Date().getFullYear()}년 ${date.slice(0, 2)}월 ${date.slice(-2)}일 ${time.slice(0, 2)}:00 ~ ${time.slice(-2)}:00`)
+                .apply_box.apply_name
+                    label(for='name') 이름
+                    input#name(type='text' name='name' required)
+                .apply_box.apply_student_id
+                    label(for='student_id') 학번
+                    input#student_id(type='number' name='student_id' required)
+                .apply_box.apply_phone_number
+                    label(for='phone_number') 전화번호
+                    input#phone_number(type='tel' name='phone_number' required)
+                button.apply_button(type='submit') 신청하기
+            script.
+                document.querySelector('form').addEventListener('submit', () => {
+                    kakaoButton();
+                });

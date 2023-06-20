@@ -1,0 +1,69 @@
+extends layout
+
+block style
+    link(rel='stylesheet' href='/css/auth.css')
+    link(rel='stylesheet' href='/css/modal.css')
+block content
+    body
+        form(action='auth/join' method='post')
+            div
+                h1 회원가입
+                div
+                    label(for='username') 아이디:
+                    input#username(type='text' name='username' required)
+                div
+                    label(for='password') 비밀번호:
+                    input#password(type='password' name='password' required)
+                .confirm
+                    label(for='confirm-password') 비밀번호 확인:
+                    input#confirm-password(type='password' name='confirm-password' required)
+                    small message
+                .emailDiv
+                    label(for='email') 이메일:
+                    .email
+                        input#email(type='text' name='jnu_mail' required)
+                        div @jejunu.ac.kr
+                if joinError
+                    .error-message= joinError
+                //- form#modal-form(action='/auth/verify' method='post')
+                div#modal-form-content
+                    h1 이메일 인증
+                    div#modal-admin
+                        label(for='verification') 인증번호:
+                        input#verification(type='text' name='verification')
+                    if verifyError
+                        .error-message= verifyError
+                    button#verify-button(type='submit') 인증확인
+                    a#close-modal(href='#') 돌아가기
+                button#join_btn(type='submit' name='submit' value='register') 가입하기
+                a(href='/') 처음으로
+
+        script.
+            const $password = document.querySelector('#password');
+            const $confirm = document.querySelector('#confirm-password');
+            const $submit = document.querySelector('#join_btn');
+
+            const showError = (input, message) => {
+                const divControl = input.parentElement;
+                divControl.className = 'confirm error';
+                const small = divControl.querySelector('small');
+                small.innerText = message;
+            }
+
+            const showSuccess = (input) => {
+                const divControl = input.parentElement;
+                divControl.className = 'confirm';
+            }
+
+            const checkPassword = () => {
+                if ($password.value !== $confirm.value) {
+                    showError($confirm, '비밀번호가 일치하지 않습니다');
+                    $submit.disabled = true;
+                }
+                else {
+                    showSuccess($confirm);
+                    $submit.disabled = false;
+                }
+            }
+
+            $confirm.addEventListener('input', checkPassword);

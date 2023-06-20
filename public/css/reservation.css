@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap');
+
+.reser_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* height: 30px */
+}
+.user_logo2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.user_logo2> img {
+    height: 30px;
+}
+
+.reser_text > p {
+    font-size: 50px;
+    margin-right: 10px;
+    display: flex;
+}
+
+.calender_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    /* height: 30px */
+}
+
+.calender_text > p {
+    font-size: 50px;
+    margin-right: 10px;
+    display: flex;
+}
+
+.login_btn,
+.regist_btn,
+.submit_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 60px;
+    width: 250px;
+    margin: 0 10px;
+}
+
+.login_btn > button,
+.regist_btn > button,
+.submit_btn > button {
+    border-style: none;
+    font-size: 30px;
+    font-family: "Jua", sans-serif;
+    background-color: white;
+}
+
+.date_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 250px;
+    width: 150px;
+    margin: 0 10px;
+    margin-top: 50px;
+}
+
+.date_btn > button {
+    border-style: none;
+    font-size: 30px;
+    font-family: "Jua", sans-serif;
+    background-color: white;
+}
+
+.space_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 200px;
+    width: 200px;
+    margin: 0 20px;
+    margin-top: 80px;
+}
+
+.space_btn > button {
+    border-style: none;
+    font-size: 27px;
+    font-family: "Jua", sans-serif; 
+    background-color: white;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-left: 60px solid black;
+    margin-left: 50px;
+    margin-top: 115px;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-right: 60px solid black;
+    margin-right: 50px;
+    margin-top: 115px;
+}
+
+/* .login_btn:active,
+.login_btn:disabled,
+.login_btn button:active,
+.login_btn button:disabled {
+    background-color: blue;
+} */
+
+/* .selected {
+    background-color: blue;
+} */
+
+/*
+예약자 정보 페이지 시작
+*/
+
+.apply_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border: solid #282c34;
+    border-radius: 15px;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.apply_title {
+    align-items: center;
+    font-size: 30px;
+    height: 150px;
+    width: 700px;
+    margin-top: 30px;
+}
+
+.apply_text,
+.apply_name,
+.apply_student_id,
+.apply_phone_number {
+    margin-top: 30px;
+    font-size: 20px;
+    height: 100px;
+    width: 700px;
+}
+
+.apply_button {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-color: #282c34;
+    border-radius: 15px;
+    border-style: solid;
+    box-shadow: 1px 3px 3px #000;
+    color: #000;
+    font-size: 30px;
+    height: 60px;
+    width: 250px;
+    margin-top: 30px;
+    font-family: "Jua", sans-serif;
+}
+
+
+/*
+예약자 정보 페이지 끝
+*/
+
+#place, #time {
+    border: none;
+    font-size: 20px;
+}
+
+#place {
+    text-align: center;
+}
+
+#name, #student_id, #phone_number {
+    height: 50px;
+    font-size: 15px;
+    border: 2px solid rgb(39, 39, 39);
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+label {
+    margin-bottom: 5px;
+}
