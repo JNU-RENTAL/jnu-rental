@@ -13,6 +13,11 @@ body {
     justify-content: center;
 }
 
+.user_logo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
 /* Title */
 .title{
     font-size: 60px;
@@ -168,14 +173,6 @@ main button:hover {
 }
 
 /* profile */
-
-.user_logo {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
 .user_logo > img {
     height: 50px;
 }

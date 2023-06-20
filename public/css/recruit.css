@@ -170,9 +170,9 @@ main button:hover {
 
 .user_logo {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    margin-right: 20px;
+    justify-content: space-between;
+    margin: 20px;
+    /* margin-right: 20px; */
 }
 
 .user_logo > img {

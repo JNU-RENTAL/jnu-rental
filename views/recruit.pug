@@ -5,6 +5,7 @@ block style
 block content
     body
         .user_logo
+            img(src='/home.png' alt='profile',  onclick=`location.href = '/select'`)
             img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
         .recruit
             nav

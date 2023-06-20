@@ -2,6 +2,12 @@ main {
     width: 55vw;
 }
 
+.user_logo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
 .header {
     background: none;
     border: none;

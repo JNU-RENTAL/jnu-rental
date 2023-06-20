@@ -7,6 +7,15 @@
     margin-bottom: 20px;
     /* height: 30px */
 }
+.user_logo2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.user_logo2> img {
+    height: 30px;
+}
 
 .reser_text > p {
     font-size: 50px;
@@ -127,13 +136,16 @@
     margin-top: 115px;
 }
 
-.btn button:active {
-    background-color: gray;
-}
+/* .login_btn:active,
+.login_btn:disabled,
+.login_btn button:active,
+.login_btn button:disabled {
+    background-color: blue;
+} */
 
-.selected {
-    background-color: gray;
-}
+/* .selected {
+    background-color: blue;
+} */
 
 /*
 예약자 정보 페이지 시작
@@ -185,6 +197,7 @@
     margin-top: 30px;
     font-family: "Jua", sans-serif;
 }
+
 
 /*
 예약자 정보 페이지 끝

@@ -10,8 +10,8 @@ btns.forEach((button) => {
 
   button.addEventListener("click", () => {
     if (!isClicked) {
-      button.style.backgroundColor = "gray";
-      button.parentElement.style.backgroundColor = "gray";
+      button.style.backgroundColor = "aqua";
+      button.parentElement.style.backgroundColor = "aqua";
       isClicked = true;
       time =
         count === 0

@@ -5,7 +5,8 @@ block style
     link(rel='stylesheet' href='/css/reservation.css')
 block content
     body
-        .user_logo
+        .user_logo2
+            img(src='/home.png' alt='profile',  onclick=`location.href = '/select'`)
             img(src='/profile.png' alt='profile', onclick=`location.href =\`/profile/${user.id}\``)
         main
             // 예약되있는 시간 불러오기
@@ -51,13 +52,16 @@ block content
                 for(let i of begin){
                     if(parseInt(e.innerText.slice(0,2)) === parseInt(i)){
                         e.disabled = true;
-                        e.style.backgroundColor='red';
+                        e.style.backgroundColor='#D5D5D5';
+                        e.parentNode.style.backgroundColor = '#D5D5D5';
+
                     }
                 }
                 for(let i of end){
                     if (parseInt(e.innerText.slice(8, 10)) === parseInt(i)) {
                         e.disabled = true;
-                        e.style.backgroundColor = 'red';
+                        e.style.backgroundColor = '#D5D5D5';
+                        e.parentNode.style.backgroundColor = '#D5D5D5';
                     }
                 }
             })
